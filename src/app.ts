@@ -6,10 +6,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.json({
-        success: true,
-        message: 'Welcome to the Library Management System API. Go to /api/books for book operations and /api/borrow for borrowing operations.',
-    });
+    res.send("Welcome to the Library Management System API. Go to /api/books for book operations and /api/borrow for borrowing operations.");
 });
 app.use('/api/books', bookRoutes);
 app.use('/api/borrow', borrowRoutes);

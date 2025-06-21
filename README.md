@@ -6,7 +6,7 @@ A robust RESTful API for managing a library system using **Express.js**, **TypeS
 
 ## 🚀 Live API
 
-🔗 **Live URL**: [https://library-api.example.com](https://library-api.example.com)
+🔗 **Live URL**: [https://a3-libraryapi.vercel.app/](https://a3-libraryapi.vercel.app/)
 
 ---
 
@@ -18,8 +18,6 @@ A robust RESTful API for managing a library system using **Express.js**, **TypeS
 - **Postman** – API testing
 
 ---
-
-## 🧪 API Endpoints & Test Cases
 
 ### ✅ Book Routes
 
@@ -39,16 +37,6 @@ A robust RESTful API for managing a library system using **Express.js**, **TypeS
 | ------ | ------------- | ------------------------- | ----------------------------- |
 | POST   | `/api/borrow` | Borrow a book             | `book`, `quantity`, `dueDate` |
 | GET    | `/api/borrow` | Summary of borrowed books | —                             |
-
-**✅ Sample Borrow Request**
-
-```ts
-{
-  "book": "68542adb22da9be86b777bea",
-  "quantity": 2,
-  "dueDate": "2025-07-22T00:00:00.000Z"
-}
-```
 
 ---
 
