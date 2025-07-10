@@ -6,7 +6,7 @@ import borrowRoutes from './modules/borrow/borrow.route';
 const app = express();
 app.use(cors(
     {
-        origin: 'https://a3-libraryapi.vercel.app',
+        origin: '*',
         credentials: true, // Allow credentials if needed
     }
 ))
