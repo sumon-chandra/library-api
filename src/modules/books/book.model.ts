@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, UpdateQuery, model } from 'mongoose';
 
 export enum Genre {
     FICTION = 'FICTION',
@@ -47,11 +47,22 @@ const bookSchema = new Schema(
     { timestamps: true }
 );
 
-// Auto handle on instance.save()
+// Automatically handle .save()
 bookSchema.pre("save", function (next) {
     this.available = this.copies > 0;
     next();
 });
+
+// Automatically handle updateOne/findOneAndUpdate
+bookSchema.pre(["updateOne", "findOneAndUpdate"], function (next) {
+    const update = this.getUpdate() as UpdateQuery<any>;
+    if (update?.copies !== undefined) {
+        update.available = update.copies > 0;
+        this.setUpdate(update);
+    }
+    next();
+});
+
 
 
 export const Book = model('Book', bookSchema);
