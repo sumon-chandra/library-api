@@ -47,9 +47,11 @@ const bookSchema = new Schema(
     { timestamps: true }
 );
 
-bookSchema.methods.updateAvailability = async function () {
+// Auto handle on instance.save()
+bookSchema.pre("save", function (next) {
     this.available = this.copies > 0;
-    await this.save();
-};
+    next();
+});
+
 
 export const Book = model('Book', bookSchema);
