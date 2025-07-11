@@ -5,7 +5,7 @@ import borrowRoutes from './modules/borrow/borrow.route';
 
 const app = express();
 app.use(cors({
-    origin: "*", // allow all origins
+    origin: ["http://localhost:5173"], // allow all origins
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
