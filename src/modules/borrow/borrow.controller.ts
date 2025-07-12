@@ -35,17 +35,7 @@ export const borrowedSummary = async (req: Request, res: Response) => {
                     as: 'book',
                 },
             },
-            { $unwind: '$book' },
-            {
-                $project: {
-                    _id: 0,
-                    book: {
-                        title: '$book.title',
-                        isbn: '$book.isbn',
-                    },
-                    totalQuantity: 1,
-                },
-            },
+            { $unwind: '$book' }
         ]);
 
         res.json({
